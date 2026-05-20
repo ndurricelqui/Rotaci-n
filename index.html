@@ -96,10 +96,15 @@
   @media (max-width: 500px) {
     .container { padding: 0.6rem; }
     /* Filtros en 2 filas, sin scroll horizontal */
-    .controls { flex-wrap: wrap; overflow-x: visible; padding: 0.6rem 0.7rem; gap: 7px; }
-    .ctrl-group { flex: 1 1 auto; min-width: 0; }
+    .controls { flex-wrap: wrap; overflow: hidden; padding: 0.6rem 0.7rem; gap: 6px; }
+    .ctrl-group { min-width: 0; }
     .ctrl-group label { font-size: 10px; }
-    .ctrl-group select, .ctrl-group input[type=date] { font-size: 12px; padding: 5px 6px; height: 32px; width: 100%; min-width: 0; }
+    /* Fechas: exactamente mitad del ancho disponible */
+    .ctrl-group:has(input[type=date]) { flex: 0 0 calc(50% - 3px); }
+    .ctrl-group input[type=date] { font-size: 12px; padding: 5px 4px; height: 32px; width: 100%; }
+    /* Selects */
+    .ctrl-group:has(select) { flex: 1 1 auto; }
+    .ctrl-group select { font-size: 12px; padding: 5px 4px; height: 32px; width: 100%; }
     .btn { font-size: 12px; padding: 5px 10px; height: 32px; white-space: nowrap; flex: 1 1 auto; }
     .updated { display: none; }
     /* 5 KPIs en una fila */
@@ -108,10 +113,12 @@
     .metric .lbl { font-size: 8px; letter-spacing: 0; margin-bottom: 3px; }
     .metric .val { font-size: 17px; }
     .metric .sub { font-size: 9px; }
-    /* Gráficos de a uno por fila */
+    /* Gráficos de a uno por fila, sin desbordar */
     .charts { grid-template-columns: 1fr; gap: 8px; }
-    .card { padding: 0.8rem; }
+    .card { padding: 0.8rem; overflow: hidden; max-width: 100%; }
     .card h3 { font-size: 10px; margin-bottom: 0.7rem; }
+    .card canvas { max-width: 100% !important; }
+    .card > div[style] { max-width: 100% !important; }
     .topbar { padding: 0 0.8rem; height: 48px; }
     .topbar h1 { font-size: 14px; }
   }
