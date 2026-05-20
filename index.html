@@ -92,6 +92,28 @@
   .pill.falt { background: #fef3cd; color: #92400e; }
   .pill.cambio { background: #e8f0fe; color: #1a56db; }
   .day-title { font-size: 13px; color: #888; margin-bottom: 10px; }
+
+  @media (max-width: 500px) {
+    .container { padding: 0.6rem; }
+    /* Filtros en una fila con scroll horizontal */
+    .controls { flex-wrap: nowrap; overflow-x: auto; padding: 0.5rem 0.6rem; gap: 6px; -webkit-overflow-scrolling: touch; }
+    .ctrl-group label { font-size: 9px; }
+    .ctrl-group select, .ctrl-group input[type=date] { font-size: 11px; padding: 4px 5px; height: 28px; min-width: 0; }
+    .btn { font-size: 11px; padding: 4px 8px; height: 28px; white-space: nowrap; }
+    .updated { display: none; }
+    /* 5 KPIs en una fila */
+    .metrics { grid-template-columns: repeat(5, 1fr); gap: 5px; }
+    .metric { padding: 0.5rem 0.4rem; border-radius: 8px; }
+    .metric .lbl { font-size: 8px; letter-spacing: 0; margin-bottom: 3px; }
+    .metric .val { font-size: 17px; }
+    .metric .sub { font-size: 9px; }
+    /* Gráficos en 2 columnas igual que desktop */
+    .charts { grid-template-columns: 1fr 1fr; gap: 7px; }
+    .card { padding: 0.7rem 0.7rem; }
+    .card h3 { font-size: 9px; margin-bottom: 0.6rem; }
+    .topbar { padding: 0 0.8rem; height: 48px; }
+    .topbar h1 { font-size: 14px; }
+  }
 </style>
 </head>
 <body>
